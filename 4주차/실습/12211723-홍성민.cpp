@@ -63,7 +63,7 @@ void Quiz3()
 
         for (int j = 1; j <= m; j++)
         {
-            cout << j << " ¡¿ " << i << " = " << setw(3) << j * i << setw(5);
+            cout << j << " Â¡Â¿ " << i << " = " << setw(3) << j * i << setw(5);
         }
         cout << "\n";
     }
@@ -73,7 +73,7 @@ void Quiz3()
 
         for (int j = m + 1; j <= n; j++)
         {
-            cout << j << " ¡¿ " << i << " = " << setw(3) << j * i << setw(5);
+            cout << j << " Â¡Â¿ " << i << " = " << setw(3) << j * i << setw(5);
         }
         cout << "\n";
     }
@@ -158,8 +158,8 @@ void Quiz5()
         }
     }
 
-    cout << "ÀÚÀ½ : " << ja << "\n";
-    cout << "¸ðÀ½ : " << mo;
+    cout << "Ã€ÃšÃ€Â½ : " << ja << "\n";
+    cout << "Â¸Ã°Ã€Â½ : " << mo;
 }   
 
 int main()
