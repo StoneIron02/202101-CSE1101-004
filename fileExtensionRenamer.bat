@@ -6,7 +6,7 @@ for /d %%D in (*) do (
   pushd "%%D"
   for /r %%F in (*) do (
     for %%P in ("%%F\..") do (
-      ren "%%F" "%%~nxP_%%~nF.cpp"
+      ren "%%F" "%%~nF.cpp"
     )
   )
   popd
