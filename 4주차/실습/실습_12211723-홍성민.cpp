@@ -164,12 +164,6 @@ void Quiz5()
 
 int main()
 {
-    //Quiz1();
-    char name[20];
-    cin >> name;
-    char* p = 0;
-    p = name;
-    cout << p;
-    cout << endl; //flush buffer
+    Quiz1();
 	return 0;
 }
