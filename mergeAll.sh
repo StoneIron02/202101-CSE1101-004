@@ -3,6 +3,10 @@ read -p 'Should I delete every local branches(except main) after push?: [y/n]' p
 
 read -p "This script does 'git pull --all', make sure you commited and pushed your work and hit enter."
 
+
+#debug = T
+debug = F
+
 git pull --all
 
 
@@ -44,7 +48,9 @@ if [ "$err" == "no" ]; then
       done
    fi
 
-   git push --all
+   if [ "$debug" == "F" ]; then
+      git push --all
+   fi
 
    if [ "pu" == "y" ]
       for local in `git branch | grep -v /HEAD | grep -v main`;
