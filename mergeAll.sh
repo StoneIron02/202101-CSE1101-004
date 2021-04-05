@@ -14,6 +14,7 @@ git checkout main
 #   git merge $local
 #done
 
+err="no"
 
 for remote in `git branch -r | grep -v /HEAD | grep -v main`;
 do
@@ -24,25 +25,33 @@ do
 
    if ! git merge $bra -m "Merge branch '$bra' into main"; then
       echo "merge conflict in branch $bra !"
+      err="yes"
       break
-   elif [ "$mer" == "y" ]; then
-      git checkout $bra
-      git merge main
    fi
 
    printf "\n"
-   git checkout main
 
 done
 
-git push --all
+if [ "$err" == "no" ]; then
 
-if [ "pu" == "y" ]
-   for local in `git branch | grep -v /HEAD | grep -v main`;
-   do
-      git branch -d $local
-   done
+   if [ "$mer" == "y" ]; then
+      for loc in `git branch | grep -v /HEAD | grep -v main`;
+      do
+         git checkout $loc
+         #Should be fast-forward
+         git merge main
+      done
+   fi
+
+   git push --all
+
+   if [ "pu" == "y" ]
+      for local in `git branch | grep -v /HEAD | grep -v main`;
+      do
+         git branch -d $local
+      done
+   fi
+
 fi
-
-
 read -p "Press enter to continue"
