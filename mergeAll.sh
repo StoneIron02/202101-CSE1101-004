@@ -4,8 +4,8 @@ read -p 'Should I delete every local branches(except main) after push?: [y/n]' p
 read -p "This script does 'git pull --all', make sure you commited and pushed your work and hit enter."
 
 
-#debug = T
-debug = F
+#$debug = T
+debug="F"
 
 git pull --all
 
@@ -28,14 +28,14 @@ do
    bra=$(echo $remote | cut -c 8-)
 
    if ! git merge $bra -m "Merge branch '$bra' into main"; then
+      printf "\nbranch '$bra'\n"
       echo "merge conflict in branch $bra !"
       err="yes"
       break
    fi
 
-   printf "\n"
-
 done
+   printf "\n\n38 line\n\n"
 
 if [ "$err" == "no" ]; then
 
@@ -52,7 +52,7 @@ if [ "$err" == "no" ]; then
       git push --all
    fi
 
-   if [ "pu" == "y" ]
+   if [ "pu" == "y" ]; then
       for local in `git branch | grep -v /HEAD | grep -v main`;
       do
          git branch -d $local
@@ -60,4 +60,5 @@ if [ "$err" == "no" ]; then
    fi
 
 fi
+
 read -p "Press enter to continue"
