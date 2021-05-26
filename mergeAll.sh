@@ -56,6 +56,7 @@ if [ "$err" == "no" ]; then
    if [ "$pu" == "y" ]; then
       for local in `git branch | grep -v /HEAD | grep -v main`;
       do
+         echo "[log] delete '$local'"
          git branch -d $local
       done
    fi
