@@ -34,7 +34,7 @@ do
    fi
 
 done
-   printf "\n\n37 line\n\n"
+   printf "\n\n37 line, ree = $err \n\n"
 
 if [ "$err" == "no" ]; then
 
