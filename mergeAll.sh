@@ -53,7 +53,7 @@ if [ "$err" == "no" ]; then
       git push --all
    fi
 
-   if [ "pu" == "y" ]; then
+   if [ "$pu" == "y" ]; then
       for local in `git branch | grep -v /HEAD | grep -v main`;
       do
          git branch -d $local
