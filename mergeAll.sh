@@ -21,20 +21,22 @@ err="no"
 
 for remote in `git branch -r | grep -v /HEAD | grep -v main`;
 do
-
+   echo "remote : $remote"
    git checkout --track $remote
    git checkout main
    bra=$(echo $remote | cut -c 8-)
+   echo "bra : $bra"
 
    if ! git merge $bra -m "Merge branch '$bra' into main"; then
       printf "\nbranch '$bra'\n"
-      echo "merge conflict in branch $bra !"
+      printf "\tmerge conflict in branch $bra !"
       err="yes"
       break
    fi
-
+   printf "\n"
 done
-   printf "\n\n37 line, ree = $err \n\n"
+
+printf "\n\n37 line, err = $err \n\n"
 
 if [ "$err" == "no" ]; then
 
