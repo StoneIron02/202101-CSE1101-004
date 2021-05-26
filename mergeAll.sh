@@ -10,8 +10,7 @@ debug="F"
 git pull --all
 
 
-git checkout --track main
-git checkout main
+git checkout --track origin/main
 
 #for local in `git branch | cut -c 3- | grep -v /HEAD | grep -v main`;
 #do
@@ -35,7 +34,7 @@ do
    fi
 
 done
-   printf "\n\n38 line\n\n"
+   printf "\n\n37 line\n\n"
 
 if [ "$err" == "no" ]; then
 
